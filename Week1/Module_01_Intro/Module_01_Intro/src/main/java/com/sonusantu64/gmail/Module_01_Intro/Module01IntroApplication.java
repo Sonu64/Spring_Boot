@@ -25,6 +25,14 @@ public class Module01IntroApplication implements CommandLineRunner {
 		// and used for >99% of applications. Other scopes are considered 'Anti-Design' Pattern and not recommended
 		// to use.
 		paymentServiceObj.pay();
+		paymentServiceObj.incrementCount();
+		System.out.println("Count is " + paymentServiceObj.getCount());
 		paymentServiceObj2.pay();
+		paymentServiceObj2.incrementCount();
+		System.out.println("Count is " + paymentServiceObj2.getCount());
 	}
 }
+
+/// A Singleton means there is only one "instance"
+/// (the data/state of the class). It does not mean the methods can only be called once.
+///

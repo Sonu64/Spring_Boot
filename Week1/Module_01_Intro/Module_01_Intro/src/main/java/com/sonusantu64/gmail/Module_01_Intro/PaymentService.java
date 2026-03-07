@@ -6,8 +6,15 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class PaymentService {
+    private int count = 0;
     public void pay() {
         System.out.println("Paying...");
+    }
+    public void incrementCount() {
+        count++;
+    }
+    public int getCount() {
+        return count;
     }
 
     @PostConstruct
