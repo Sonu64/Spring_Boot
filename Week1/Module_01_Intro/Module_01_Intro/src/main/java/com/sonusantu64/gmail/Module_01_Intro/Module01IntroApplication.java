@@ -1,6 +1,7 @@
 package com.sonusantu64.gmail.Module_01_Intro;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,6 +13,10 @@ public class Module01IntroApplication implements CommandLineRunner {
 	// Using @Autowired directly is Field-Level DI, not preferred for Production apps.
     //@Autowired is optional here to Choose the primary Bean ( @Component from the App Context)
 	// See below comment for details !
+	@Autowired
+	@Qualifier("bengaliGreeting")
+	GreetingService greetingService;
+
     private final NotificationService notificationService; //--> the Primary component would be used, from all the beans
 	// (@Components !)
 
@@ -29,6 +34,7 @@ public class Module01IntroApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
+		greetingService.sendGreeting();
 		notificationService.sendNotification("TEST NOTIFICATION");
 	}
 }

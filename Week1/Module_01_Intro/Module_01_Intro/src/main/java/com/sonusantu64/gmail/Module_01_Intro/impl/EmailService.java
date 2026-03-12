@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 //@Primary
 @Component
 @Qualifier("EmailNotification")
-@ConditionalOnProperty(name="notification.type", havingValue="email")
+//@ConditionalOnProperty(name="notification.type", havingValue="email")
 public class EmailService implements NotificationService {
     @Override
     public void sendNotification(String message) {
