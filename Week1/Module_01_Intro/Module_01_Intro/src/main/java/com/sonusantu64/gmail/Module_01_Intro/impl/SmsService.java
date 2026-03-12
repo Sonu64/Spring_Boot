@@ -11,6 +11,6 @@ import org.springframework.stereotype.Component;
 public class SmsService implements NotificationService {
     @Override
     public void sendNotification(String message) {
-        System.out.println("Sending notification " + message + " via Email...");
+        System.out.println("Sending notification " + message + " via SMS...");
     }
 }

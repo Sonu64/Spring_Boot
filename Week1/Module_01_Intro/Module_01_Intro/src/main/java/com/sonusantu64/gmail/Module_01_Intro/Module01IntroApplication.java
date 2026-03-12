@@ -19,9 +19,11 @@ public class Module01IntroApplication implements CommandLineRunner {
 
     private final NotificationService notificationService; //--> the Primary component would be used, from all the beans
 	// (@Components !)
+	private final DatabaseService databaseService;
 
-	Module01IntroApplication(NotificationService notificationService) {
+	Module01IntroApplication(NotificationService notificationService, DatabaseService databaseService) {
 		this.notificationService = notificationService;
+		this.databaseService = databaseService;
 		//--> So we can also make it final now, so it is totally safe against Any sort of changing the service,
 		// willingly, or unwillingly !
 		//-- Constructor level DI, best for Production Apps.
@@ -36,6 +38,7 @@ public class Module01IntroApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		greetingService.sendGreeting();
 		notificationService.sendNotification("TEST NOTIFICATION");
+		databaseService.connectToDatabase("PostgreSQL");
 	}
 }
 
